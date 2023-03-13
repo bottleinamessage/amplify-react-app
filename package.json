@@ -2,6 +2,7 @@
   "name": "amplify-react-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bottleinamessage/amplify-react-app",
   "dependencies": {
     "@aws-amplify/cli": "^10.8.1",
     "@aws-amplify/ui-react": "^4.3.10",
