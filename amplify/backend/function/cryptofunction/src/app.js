@@ -6,9 +6,6 @@ or in the "license" file accompanying this file. This file is distributed on an 
 See the License for the specific language governing permissions and limitations under the License.
 */
 
-
-
-
 const express = require('express')
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
@@ -43,6 +40,17 @@ app.get('/coins', function(req, res) {
   axios.get(apiUrl)
     .then(response => {
       res.json({  coins: response.data.data })
+    })
+    .catch(err => res.json({ error: err }))
+})
+
+app.get('/born', function(req, res) {
+  let apiUrl = 'https://api.github.com/users/bottleinamessage';
+
+  // Call API and return response
+  axios.get(apiUrl)
+    .then(response => {
+      res.json({  born: response.data.data })
     })
     .catch(err => res.json({ error: err }))
 })
