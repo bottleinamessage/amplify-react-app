@@ -4,27 +4,24 @@ import { API } from 'aws-amplify';
 
 const BornOn = () => {
 
-// Create born variable and set to empty string
-  const [born, updateBornOnDate] = useState("")
+  // Create coins variable and set to empty array
+  const [born, setBornDateState] = useState([])
 
-
-  // Define function to all API
   const fetchGithubData = async () => {
-    const data = await API.get('cryptoapi', `https://api.github.com/users/${bottleinamessage}`);
-    updateBornOnDate(data.born);
+    const response = await API.get('cryptoapi', `/born`);
+    setBornDateState(response.born.created_at);
   }
 
-  // Create a new function to allow users to update the input values
-  const updateInputValues = (type, value) => {
-    updateInput({ ...input, [type]: value });
-  }
-
-
-  // Call fetchCoins function when component loads
+  // Call fetchGithubData function when component loads
   useEffect(() => {
     fetchGithubData()
-  }, [bottleinamessage])
+  }, [])
 
+  return (
+    <>
+      <h3>Github was born on {born} </h3>
+    </>
+  );
 }
 
 export default BornOn;

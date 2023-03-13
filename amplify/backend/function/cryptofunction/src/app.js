@@ -23,7 +23,7 @@ app.use(function(req, res, next) {
 });
 
 // Import axios
-const axios = require('axios')
+const axios = require('axios');
 
 app.get('/coins', function(req, res) {
   // Define base url
@@ -45,12 +45,12 @@ app.get('/coins', function(req, res) {
 })
 
 app.get('/born', function(req, res) {
-  let apiUrl = 'https://api.github.com/users/bottleinamessage';
+  const apiUrl = `https://api.github.com/users/bottleinamessage`;
 
   // Call API and return response
   axios.get(apiUrl)
     .then(response => {
-      res.json({  born: response.data.data })
+      res.json({ born: response.data })
     })
     .catch(err => res.json({ error: err }))
 })

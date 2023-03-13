@@ -41,6 +41,8 @@ const App = () => {
       />
 
       <button onClick={fetchCoins}>Fetch Coins</button>
+
+      <BornOn/>
       {
         coins.map((coin, index) => (
           <div key={index}>
